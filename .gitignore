@@ -1,5 +1,5 @@
-*dist/
-
+dist/
+public/assets/*
 
 ### Windows template
 # Windows image file caches
