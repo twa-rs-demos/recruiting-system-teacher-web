@@ -3,7 +3,7 @@ import {render} from "react-dom";
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import App from "./containers/App";
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from './reducers/Login/login-reducer';
+import rootReducer from './reducers/index.js';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import LoginForm from './containers/Login/login-container';

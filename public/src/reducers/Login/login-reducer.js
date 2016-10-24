@@ -11,9 +11,6 @@ function loginReducer(state = {status: false}, action) {
                 status: state.status
             })
         }
-        case 'PAPERLIST': {
-            return action.paperList;
-        }
     }
     return state;
 }

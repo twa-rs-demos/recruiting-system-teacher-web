@@ -7,13 +7,13 @@ import superagent from 'superagent';
 export const getPaperList = ()=> {
     return (dispatch)=> {
         superagent
-            .get('http://api.github.com/users/bmeritter/followers')
+            .get('https://api.github.com/users/MHwishes/followers')
             .end((err, res) => {
                 if (err) {
                     throw(err);
                 } else {
-                    // console.log('----')
-                    // console.log(res.body);
+                    console.log('----');
+                    console.log(res.body);
                     dispatch(getPaperInfo(res.body));
                 }
             });

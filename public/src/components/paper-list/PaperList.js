@@ -4,9 +4,10 @@ class PaperList extends Component {
     handleClick() {
         this.props.getPaperList();
     }
-    
+
     render() {
         const paperList = this.props.paperList || [];
+        console.log("huhu");
         console.log(paperList);
         return (
             <div className="col-md-offset-4 col-md-4">

@@ -8,7 +8,7 @@ import PaperList from '../../components/paper-list/PaperList.js';
 import {getPaperList} from '../../actions/paper-list/paperList';
 
 const mapStateToProps = (state)=> {
-    console.log(state)
+    console.log(state);
     return {paperList:state.paperListReducer};
 };
 
