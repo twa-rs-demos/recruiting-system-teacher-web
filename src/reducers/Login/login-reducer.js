@@ -1,15 +1,11 @@
 function loginState(state = false, action) {
     switch (action.type) {
         case 'LOGIN': {
-            return ({
-                status: !state
-            })
+            return !state
         }
-        case 'ERR': {
+        case 'LOGIN_ERROR': {
             alert('请输入正确的用户名和密码！');
-            return ({
-                status: state
-            })
+            return state
         }
     }
     return state;
