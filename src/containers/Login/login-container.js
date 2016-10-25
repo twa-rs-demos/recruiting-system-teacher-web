@@ -1,13 +1,8 @@
-import {withRouter} from 'react-router';
-import {checkLogin} from '../../actions/Login/login-action';
-import TeacherLoginForm from '../../components/Login/LoginForm'
+import {checkLogin} from '../../actions/Login/check-login';
+import TeacherLogin from '../../components/Login/TeacherLogin'
 import {connect} from 'react-redux';
 
-const mapStateToProps = (state)=> {
-    return {
-        status: state
-    }
-};
+const mapStateToProps = (state)=> state;
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -18,4 +13,4 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TeacherLoginForm));
+export default connect(mapStateToProps, mapDispatchToProps)(TeacherLogin);
