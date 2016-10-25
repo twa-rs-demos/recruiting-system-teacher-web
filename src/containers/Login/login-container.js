@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state)=> {
     return {
-        status: state.status
+        status: state
     }
 };
 

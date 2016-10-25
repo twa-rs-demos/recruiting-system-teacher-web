@@ -1,14 +1,14 @@
-function loginReducer(state = {status: false}, action) {
+function loginReducer(state = false, action) {
     switch (action.type) {
         case 'LOGIN': {
             return ({
-                status: !state.status
+                status: !state
             })
         }
         case 'ERR': {
             alert('请输入正确的用户名和密码！');
             return ({
-                status: state.status
+                status: state
             })
         }
     }

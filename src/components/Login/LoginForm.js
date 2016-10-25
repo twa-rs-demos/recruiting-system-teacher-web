@@ -42,7 +42,7 @@ class TeacherLoginForm extends Component {
                 </div>
 
                 <div>
-                    <Link to={this.props.status ? "/paperList" : "/"}>
+                    <Link to={this.props.status ? "/teacher-admin-web/paperList" : "/teacher-admin-web/"}>
                         <button type="submit" className="btn btn-lg btn-block btn-primary"
                                 onClick={this.judge.bind(this)}>
                             登录
