@@ -1,4 +1,4 @@
-function loginReducer(state = false, action) {
+function loginState(state = false, action) {
     switch (action.type) {
         case 'LOGIN': {
             return ({
@@ -14,4 +14,4 @@ function loginReducer(state = false, action) {
     }
     return state;
 }
-export default loginReducer;
+export default loginState;
