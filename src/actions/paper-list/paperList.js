@@ -7,7 +7,7 @@ import superagent from 'superagent';
 export const getPaperList = ()=> {
     return (dispatch)=> {
         superagent
-            .get('https://api.github.com/users/MHwishes/followers')
+            .get("/api/papers")
             .end((err, res) => {
                 if (err) {
                     throw(err);
