@@ -6,9 +6,7 @@ class PaperList extends Component {
     }
 
     render() {
-        const paperList = this.props.paperList || [];
-        console.log("huhu");
-        console.log(paperList);
+        const paperList = this.props.paperList.text || [];
         return (
             <div className="col-md-offset-4 col-md-4">
                 <div>
@@ -17,15 +15,17 @@ class PaperList extends Component {
                     </button>
                 </div>
                 <br/>
-                {
-                    paperList.map((paper, index)=> {
-                        return <div key={index}>
-                            <a href="#" className="list-group-item">
-                                {paper.id}
-                            </a>
-                        </div>
-                    })
-                }
+                <div>
+                    {/*{paperList.map((paper, index)=> {*/}
+                        {/*return <div key={index}>*/}
+                            {/*<a href="#" className="list-group-item">*/}
+                                {/*{paper.paperName}*/}
+                            {/*</a>*/}
+                        {/*</div>*/}
+                    {/*})*/}
+                    {/*}*/}
+                    {paperList}
+                   </div>
 
             </div>
         )
