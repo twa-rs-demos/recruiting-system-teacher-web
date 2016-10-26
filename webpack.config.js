@@ -1,5 +1,7 @@
 'use strict';
 
+var env = ['production', 'test', 'staging', 'integration'].indexOf(process.env.NODE_ENV) < 0 ? 'development' : process.env.NODE_ENV;
+
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -68,6 +70,9 @@ var config = {
         new webpack.ProvidePlugin({
             React: 'react',
             ReactDOM: 'react-dom'
+        }),
+        new webpack.DefinePlugin({
+          URI_PROFIX: (env === 'development') ? JSON.stringify('/teacher-admin-web') : JSON.stringify('')
         }),
         new ExtractTextPlugin("[chunkhash:8].[name].css"),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
