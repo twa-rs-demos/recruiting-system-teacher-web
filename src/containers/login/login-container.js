@@ -1,5 +1,5 @@
-import {checkLogin} from '../../actions/Login/check-login';
-import TeacherLogin from '../../components/Login/TeacherLogin'
+import {checkLogin} from '../../actions/login/check-login';
+import TeacherLogin from '../../components/login/Teacher-login'
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state)=> state;
