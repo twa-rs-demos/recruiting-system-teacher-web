@@ -1,40 +1,111 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var webpack = require("webpack");
+'use strict';
 
-module.exports = {
+var webpack = require("webpack");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlwebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+var node_modules = path.resolve(__dirname, 'node_modules');
+var pathToBootstarp = path.resolve(node_modules, 'bootstrap/dist/');
+
+var config = {
     entry: {
-        vendor: ["webpack-hot-middleware/client", "react", "react-dom", "./node_modules/bootstrap/dist/css/bootstrap.css"],
-        index: ["./src/main"]
+        "index": "./src/main.js",
+        "vendors": ['bootstrap.css', 'react', 'react-dom', 'bootstrap.js']
     },
     output: {
-        path: require('path').resolve("./public/assets"),
-        filename: "[name].js"
+        path: __dirname + '/public/assets/',
+        filename: '[chunkhash:8].[name].js',
+        chunkFilename: '[name].[chunkhash:8].js',
+        publicPath: '/teacher-admin-web'
     },
     module: {
         loaders: [
+
             {
                 test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
-                exclude: /node_modules/,
                 query: {
-                    presets: ['es2015', 'react', 'react-hmre']
+                    presets: ['react', 'es2015']
+                }
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
+            },
+            {
+                test: /\.jsx$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel',
+                query: {
+                    presets: ['react', 'es2015']
                 }
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             },
-            {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
-        ]
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            },
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "url-loader?limit=10000&minetype=application/font-woff"
+            },
+            {
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader"
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'url-loader?limit=10000&name=build/[name].[ext]'
+            }
+        ],
+        noParse: [ pathToBootstarp]
     },
     plugins: [
-        new ExtractTextPlugin("[name].css"),
-        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-    ]
+        new webpack.ProvidePlugin({
+            React: 'react',
+            ReactDOM: 'react-dom'
+        }),
+        new ExtractTextPlugin("[chunkhash:8].[name].css"),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+
+    ],
+    resolve: {
+        alias: {
+            'bootstrap.css': 'bootstrap/dist/css/bootstrap.min.css',
+            'bootstrap.js': 'bootstrap/dist/js/bootstrap.min.js'
+        }
+    }
 };
+
+function htmlwebpackPluginBuilder(fileName, deps) {
+    return new HtmlwebpackPlugin({
+        filename: fileName,
+        minify: {collapseWhitespace: true},
+        template: __dirname + '/' + fileName,
+        inject: true,
+        chunks: deps
+    })
+}
+
+(function webpackByEnv() {
+    if (process.env.NODE_ENV === 'production') {
+        config.plugins.push(
+          new webpack.optimize.UglifyJsPlugin({
+              compress: {
+                  warnings: false
+              }
+          })
+        );
+    } else {
+        config.devtool = '#cheap-source-map';
+    }
+})();
+
+config.plugins.push(htmlwebpackPluginBuilder('index.html', ['vendors', 'index']));
+
+
+module.exports = config;
