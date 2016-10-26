@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers/index.js';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import LoginApp from './containers/Login/login-container';
+import LoginApp from './containers/login/login-container';
 import createLogger from 'redux-logger';
 import PaperList from './containers/paper-list/paper-list';
 
