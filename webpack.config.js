@@ -7,12 +7,12 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var node_modules = path.resolve(__dirname, 'node_modules');
-var pathToBootstarp = path.resolve(node_modules, 'react-bootstrap/dist/');
+var pathToBootstarp = path.resolve(node_modules, 'bootstrap/dist/');
 
 var config = {
     entry: {
         "index": "./src/main.js",
-        "vendors": ['react', 'react-dom']
+        "vendors": ['bootstrap.css','react', 'react-dom']
     },
     output: {
         path: __dirname + '/public/assets/',
@@ -80,7 +80,8 @@ var config = {
     ],
     resolve: {
         alias: {
-            'bootstrap.js': 'react-bootstrap/dist/js/react-bootstrap.min.js'
+            'bootstrap.css': 'bootstrap/dist/css/bootstrap.min.css',
+            'bootstrap.js': 'bootstrap/dist/js/bootstrap.min.js'
         }
     }
 };
