@@ -15,7 +15,7 @@ const TeacherLogin = withRouter(
 
     componentWillUpdate(){
       if (this.props.loginState) {
-        this.props.router.push(URI_PROFIX + '/paperList');
+        this.props.router.push(URI_PROFIX + '/teacher');
       } else {
         this.props.router.push(URI_PROFIX);
       }
