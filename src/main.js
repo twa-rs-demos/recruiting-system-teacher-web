@@ -17,7 +17,6 @@ const store = createStore(
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path={URI_PROFIX} component={PaperMetaInfo}/>
       <Route path={URI_PROFIX} component={LoginApp}/>
       <Route path={URI_PROFIX + '/paperList'} components={PaperList}/>
     </Router>
