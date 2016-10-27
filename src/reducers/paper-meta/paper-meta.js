@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-function paperMeta(state =false, action) {
-=======
 export default(state =false, action)=> {
->>>>>>> c11e2c9
     console.log(action);
     switch (action.type) {
         case 'PAPER_META': {
@@ -16,7 +12,3 @@ export default(state =false, action)=> {
     return state;
 }
 
-<<<<<<< HEAD
-export default paperMeta;
-=======
->>>>>>> c11e2c9
