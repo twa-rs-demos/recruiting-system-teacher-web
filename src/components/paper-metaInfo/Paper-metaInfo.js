@@ -13,7 +13,6 @@ class PaperMetaInformation extends Component {
         this.props.onModifyInfo(title, description, easyCount, normalCount, hardCount);
     }
 
-
     render() {
         return <div className="row">
             <div className="form-group col-md-10 col-md-offset-3">
