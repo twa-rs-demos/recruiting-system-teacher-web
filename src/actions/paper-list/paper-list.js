@@ -14,7 +14,7 @@ export const getPaperList = ()=> {
   }
 };
 
-export const getPaperInfo = (paperList)=> {
+const getPaperInfo = (paperList)=> {
   return ({
     type: 'PAPER_LISTED',
     paperList

@@ -12,7 +12,7 @@ var pathToBootstarp = path.resolve(node_modules, 'bootstrap/dist/');
 var config = {
     entry: {
         "index": "./src/main.js",
-        "vendors": ['bootstrap.css', 'react', 'react-dom']
+        "vendors": ['bootstrap.css','react', 'react-dom']
     },
     output: {
         path: __dirname + '/public/assets/',
