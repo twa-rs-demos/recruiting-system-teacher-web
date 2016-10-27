@@ -1,6 +1,12 @@
 ###运行老师登录界面
-* ![git clone git@github.com:twa-rs-demos/teacherLoginSystem.git](git@github.com:twa-rs-demos/teacherLoginSystem.git)
+
+* cd recruiting-system
+* git pull
+* git submodule update
+
+* cd teacher-admin-web
+* git checkout master
+* git pull
 * npm install
 * npm run webpack
-* npm start
-* 访问 localhost:3000
+* 访问 http://localhost:8888/teacher-admin-web
