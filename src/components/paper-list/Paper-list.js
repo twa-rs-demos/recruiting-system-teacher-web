@@ -6,8 +6,8 @@ class PaperList extends Component {
     }
 
     onDelete() {
-        const input = prompt('确认删除吗','no');
-        if (input === 'yes'){
+        const input = confirm('确认删除吗');
+        if (input === true){
             this.props.deletePaper();
         }
     }
