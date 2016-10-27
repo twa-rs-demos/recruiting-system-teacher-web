@@ -1,11 +1,10 @@
 'use strict';
 import superagent from 'superagent';
 
-var paperCreating;
-export default paperCreating = (simple, general, complex) => {
+export const paperCreating = (simple, general, complex) => {
   return (dispatch)=> {
     superagent
-      .post('/api/createPaper')
+      .post('/api/paper/createPaper')
       .send({
         simple, general, complex
       })
@@ -17,7 +16,7 @@ export default paperCreating = (simple, general, complex) => {
         }
       })
   }
-}
+};
 
 const createdPaper = (status)=> {
   return ({

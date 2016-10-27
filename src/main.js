@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import LoginApp from './containers/login/login-container';
 import createLogger from 'redux-logger';
 import PaperList from './containers/paper-list/paper-list';
-import PaperCreating from './components/paper-creating/Paper-creating';
+import PaperCreating from './containers/paper-creating/paper-creating';
 
 const store = createStore(
   rootReducer,

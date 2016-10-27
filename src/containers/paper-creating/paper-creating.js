@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PaperCreating from '../../components/paper-creating/Paper-creating';
-import paperCreating from '../../actions/paper-creating/paper-creating';
+import {paperCreating} from '../../actions/paper-creating/paper-creating';
 
 const mapStateToProps = (state)=> {
 
-  return {paperList: state.paperList};
+  return {status: state.status};
 };
 
 const mapDispatchToProps = (dispatch)=> {

@@ -13,6 +13,10 @@ const TeacherLogin = withRouter(
       this.props.onJudge(email, password);
     },
 
+    create(){
+      this.props.router.push(URI_PROFIX + '/paperCreating');
+    },
+
     componentWillUpdate(){
       if (this.props.loginState) {
 
@@ -51,6 +55,10 @@ const TeacherLogin = withRouter(
               <button type='submit' className='btn btn-lg btn-block btn-primary'
                       onClick={this.judge}>
                 登录
+              </button>
+              <button className='btn btn-lg btn-block btn-primary'
+                      onClick={this.create}>
+                创建试卷
               </button>
             </div>
           </div>
