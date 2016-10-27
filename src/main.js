@@ -18,9 +18,9 @@ const store = createStore(
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path='/teacher-admin-web' component={LoginApp}/>
-      <Route path='/teacher-admin-web/paperList' components={PaperList}/>
-      <Route path='/teacher-admin-web/paperCreating' components={PaperCreating}/>
+      <Route path={URI_PROFIX} component={LoginApp}/>
+      <Route path={URI_PROFIX + '/paperList'} components={PaperList}/>
+      <Route path={URI_PROFIX + '/paperCreating'} components={PaperCreating}/>
     </Router>
   </Provider>,
   document.getElementById('app')
