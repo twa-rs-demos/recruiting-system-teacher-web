@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {modifyMetaInfo} from '../../actions/paper-meta/paper-meta';
 import PaperMeta from '../../components/paper-meta/Paper-meta';
+import {modifyMetaInfo} from '../../actions/paper-meta/paper-meta';
 
 const mapDispatchToProps = (dispatch)=> {
 
