@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import PaperList from '../../components/paper-list/Paper-list.js';
 import {getPaperList} from '../../actions/paper-list/paper-list';
+import {deletePaper} from '../../actions/paper-list/delete-paper';
 
 const mapStateToProps = (state)=> {
 
@@ -14,6 +15,9 @@ const mapDispatchToProps = (dispatch)=> {
   return {
     getPaperList: ()=> {
       dispatch(getPaperList());
+    },
+    deletePaper:() =>{
+      dispatch(deletePaper());
     }
   }
 };
