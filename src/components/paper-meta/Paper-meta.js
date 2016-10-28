@@ -4,13 +4,16 @@ import {render} from 'react-dom';
 
 class PaperMeta extends Component {
 
-    modifyInfo() {
+    modifyMeta() {
         const title = this.refs.title.value;
         const description = this.refs.description.value;
         const easyCount = this.refs.easyCount.value;
         const normalCount = this.refs.normalCount.value;
         const hardCount = this.refs.hardCount.value;
         this.props.onModifyInfo(title, description, easyCount, normalCount, hardCount);
+    }
+    handleChange(){
+        this.props.onHandleChange();
     }
 
     render() {
@@ -35,12 +38,13 @@ class PaperMeta extends Component {
 
             <div className=" row form-group col-md-10 col-md-offset-3">
                 <div className="col-md-2">
-                    <input type="checkbox"/><b>逻辑题</b>
+                    <input type="checkbox"  onClick={this.handleChange.bind(this)}/><b>逻辑题</b>
                 </div>
-                <div className="col-md-3">
 
+                <div className="col-md-3">
                     <div className="col-md-5">easyCount</div>
-                    <select className="col-md-4" ref="easyCount">
+                    {console.log(this.props.state)}
+                    <select className="col-md-4" ref="easyCount" disabled={this.props.state ? disabled :''}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -49,8 +53,8 @@ class PaperMeta extends Component {
                         <option>6</option>
                     </select>
                 </div>
-                <div className="col-md-3">
 
+                <div className="col-md-3">
                     <div className="col-md-5">normalCount</div>
                     <select className="col-md-4" ref="normalCount">
                         <option>1</option>
@@ -62,8 +66,8 @@ class PaperMeta extends Component {
 
                     </select>
                 </div>
-                <div className="col-md-3">
 
+                <div className="col-md-3">
                     <div className="col-md-5">hardCount</div>
                     <select className="col-md-4" ref="hardCount">
                         <option>1</option>
@@ -77,7 +81,7 @@ class PaperMeta extends Component {
             </div>
 
             <div className="col-md-3 col-md-offset-7">
-                <button className="btn btn-primary btn-lg" onClick={this.modifyInfo.bind(this)}>修改</button>
+                <button className="btn btn-primary btn-lg" onClick={this.modifyMeta.bind(this)}>修改</button>
             </div>
         </div>
     }
