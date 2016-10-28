@@ -12,7 +12,7 @@ import PaperCreating from './containers/paper-creating/paper-creating';
 import Teacher from './components/teacher/Teacher';
 import PaperMeta from './containers/paper-meta/paper-meta';
 
-const store = createSt
+const store = createStore(
   rootReducer,
   applyMiddleware(createLogger(), thunkMiddleware)
 );
