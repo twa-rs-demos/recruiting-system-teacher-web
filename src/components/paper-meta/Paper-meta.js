@@ -20,9 +20,9 @@ class PaperMeta extends Component {
 
         const questionCount = ["easyCount",  "normalCount", "hardCount"];
 
-        const countArray = questionCount.map(qc =>{
+        const countArray = questionCount.map((qc,index) =>{
 
-           return  (<div>
+           return  (<div key={index} >
                <div className="col-md-3">
                         <div className="col-md-5">{qc}</div>
                         <select className="col-md-4" ref={qc} disabled={this.props.paperMeta ? '' :'disabled'}>
@@ -38,7 +38,7 @@ class PaperMeta extends Component {
            )
         });
 
-        return (<div className="row">
+        return (<div className="row" style={{marginTop: "5%"}}>
             <div className="form-group col-md-10 col-md-offset-3">
                  <div className="row">
                     <label className="col-md-2">标题</label>
