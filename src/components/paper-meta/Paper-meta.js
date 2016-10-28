@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 
 
-class PaperMetaInformation extends Component {
+class PaperMeta extends Component {
 
     modifyInfo() {
         const title = this.refs.title.value;
@@ -12,7 +12,6 @@ class PaperMetaInformation extends Component {
         const hardCount = this.refs.hardCount.value;
         this.props.onModifyInfo(title, description, easyCount, normalCount, hardCount);
     }
-
 
     render() {
         return <div className="row">
@@ -84,4 +83,4 @@ class PaperMetaInformation extends Component {
     }
 }
 
-export default PaperMetaInformation;
+export default PaperMeta;

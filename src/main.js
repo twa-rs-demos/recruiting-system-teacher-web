@@ -9,6 +9,8 @@ import LoginApp from './containers/login/login-container';
 import createLogger from 'redux-logger';
 import PaperList from './containers/paper-list/paper-list';
 import PaperCreating from './containers/paper-creating/paper-creating';
+import Teacher from './components/teacher/Teacher';
+import PaperMeta from './containers/paper-meta/paper-meta';
 
 const store = createStore(
   rootReducer,
@@ -20,7 +22,10 @@ render(
     <Router history={browserHistory}>
       <Route path={URI_PROFIX} component={LoginApp}/>
       <Route path={URI_PROFIX + '/paperList'} components={PaperList}/>
+      <Route path={URI_PROFIX + '/teacher'} components={Teacher}/>
+      <Route path={URI_PROFIX + '/paperMeta'} components={PaperMeta}/>
       <Route path={URI_PROFIX + '/paperCreating'} components={PaperCreating}/>
+
     </Router>
   </Provider>,
   document.getElementById('app')

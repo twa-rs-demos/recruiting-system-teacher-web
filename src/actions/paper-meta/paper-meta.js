@@ -1,7 +1,10 @@
+import superagent from 'superagent';
+
 export  const  modifyMetaInfo=(title,description,easyCount,normalCount,hardCount)=>{
     return (dispatch)=> {
         superagent
-            .get('/api/papers-metaInfo')
+            .put('/api/papers')
+            .send({title:title,description:description,easyCount:easyCount,normalCount:normalCount,hardCount:hardCount })
             .end((err, res) => {
                 if (err) {
                     throw(err);
@@ -11,3 +14,10 @@ export  const  modifyMetaInfo=(title,description,easyCount,normalCount,hardCount
             });
     }
 };
+
+function getMeta(result) {
+    return ({
+        type: 'PAPER_META',
+        result
+    });
+}

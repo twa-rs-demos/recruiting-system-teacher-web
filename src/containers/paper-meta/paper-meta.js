@@ -1,15 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {modifyMetaInfo} from '../../actions/paper-metalnfo/paper-metalnfo';
-import PaperMetaInformation from '../../components/paper-metaInfo/Paper-metaInfo';
-
-// const mapStateToProps = (state)=> {
-//
-//     return {paperList: state.paperList};
-// };
-
-
+import PaperMeta from '../../components/paper-meta/Paper-meta';
+import {modifyMetaInfo} from '../../actions/paper-meta/paper-meta';
 
 const mapDispatchToProps = (dispatch)=> {
 
@@ -24,4 +17,4 @@ const mapDispatchToProps = (dispatch)=> {
 
 export default connect(()=> {
     return {}
-}, mapDispatchToProps)(PaperMetaInformation);
+}, mapDispatchToProps)(PaperMeta);
