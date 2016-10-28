@@ -1,6 +1,6 @@
 import superagent from 'superagent';
 
-export  const  modifyMetaInfo=(title,description,easyCount,normalCount,hardCount)=>{
+export  const  modifyMeta=(title,description,easyCount,normalCount,hardCount)=>{
     return (dispatch)=> {
         superagent
             .put('/api/papers')
@@ -14,6 +14,18 @@ export  const  modifyMetaInfo=(title,description,easyCount,normalCount,hardCount
             });
     }
 };
+
+export const handleChange = ()=> {
+    return (dispatch)=> {
+        dispatch(changeStatus());
+    }
+};
+
+function changeStatus() {
+    return ({
+        type:'MODIFY_STATUS'
+    })
+}
 
 function getMeta(result) {
     return ({
