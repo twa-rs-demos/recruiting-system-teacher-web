@@ -25,7 +25,6 @@ render(
       <Route path={URI_PROFIX + '/teacher'} components={Teacher}/>
       <Route path={URI_PROFIX + '/paperMeta'} components={PaperMeta}/>
       <Route path={URI_PROFIX + '/paperCreating'} components={PaperCreating}/>
-
     </Router>
   </Provider>,
   document.getElementById('app')
