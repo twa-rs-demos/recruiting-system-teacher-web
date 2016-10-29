@@ -38,7 +38,7 @@ class PaperMeta extends Component {
            )
         });
 
-        return (<div className="row">
+        return (<div className="row" style={{marginTop: "5%"}}>
             <div className="form-group col-md-10 col-md-offset-3">
                  <div className="row">
                     <label className="col-md-2">标题</label>
