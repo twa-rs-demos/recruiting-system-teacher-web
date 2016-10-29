@@ -3,7 +3,7 @@ import superagent from 'superagent';
 export  const  modifyMeta=(title,description,easyCount,normalCount,hardCount)=>{
     return (dispatch)=> {
         superagent
-            .put('/api/papers')
+            .put('/api/papers/modifiedPaper/2')
             .send({title:title,description:description,easyCount:easyCount,normalCount:normalCount,hardCount:hardCount })
             .end((err, res) => {
                 if (err) {
