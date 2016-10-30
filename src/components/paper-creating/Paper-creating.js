@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {withRouter} from 'react-router';
 
-
 const PaperCreating = withRouter(
   React.createClass({
 
