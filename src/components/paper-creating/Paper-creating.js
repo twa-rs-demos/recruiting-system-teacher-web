@@ -16,7 +16,7 @@ const PaperCreating = withRouter(
     },
 
     componentWillUpdate(){
-      alert(this.props.status);
+      alert(this.props.paperCreate);
     },
 
     render() {
@@ -46,7 +46,7 @@ const PaperCreating = withRouter(
             </div>
             <div>
               <button type="submit" className="btn btn-lg btn-block btn-primary"
-                      onClick={this.create.bind(this)}>
+                      onClick={this.create}>
                 确认创建
               </button>
             </div>

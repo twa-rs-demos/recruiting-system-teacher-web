@@ -22,6 +22,7 @@ render(
             <Route path={URI_PROFIX} component={LoginApp}/>
             <Route path={URI_PROFIX + '/teacher'} components={Teacher}/>
             <Route path={URI_PROFIX + '/paperMeta'} components={PaperMeta}/>
+            <Route path={URI_PROFIX + '/paperCreate'} components={PaperCreating}/>
         </Router>
     </Provider>,
     document.getElementById('app')
