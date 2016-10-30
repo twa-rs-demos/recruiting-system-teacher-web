@@ -4,7 +4,7 @@ import superagent from 'superagent';
 export const paperCreating = (simple, general, complex) => {
   return (dispatch)=> {
     superagent
-      .post('/api/paper/createPaper')
+      .post('/api/papers/createPaper')
       .send({
         simple, general, complex
       })
@@ -19,8 +19,8 @@ export const paperCreating = (simple, general, complex) => {
 };
 
 const createdPaper = (status)=> {
-  return ({
+  return {
     type: "CREATED_PAPER",
     status
-  })
+  }
 };  

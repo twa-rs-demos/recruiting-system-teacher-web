@@ -14,7 +14,7 @@ const TeacherLogin = withRouter(
     },
 
     create(){
-      this.props.router.push(URI_PROFIX + '/paperCreating');
+      this.props.router.push(URI_PROFIX + '/paperCreate');
     },
 
     componentWillUpdate(){

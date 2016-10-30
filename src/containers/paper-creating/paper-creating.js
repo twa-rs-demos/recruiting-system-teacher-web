@@ -3,10 +3,7 @@ import {connect} from 'react-redux';
 import PaperCreating from '../../components/paper-creating/Paper-creating';
 import {paperCreating} from '../../actions/paper-creating/paper-creating';
 
-const mapStateToProps = (state)=> {
-
-  return {status: state.status};
-};
+const mapStateToProps = (state)=> state;
 
 const mapDispatchToProps = (dispatch)=> {
 
