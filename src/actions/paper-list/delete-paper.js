@@ -3,7 +3,7 @@ import superagent from 'superagent';
 export const deletePaper = ()=> {
     return (dispatch)=> {
         superagent
-            .put('/api/papers/1')
+            .delete('/api/papers/1')
             .end((err, res) => {
                 if (err) {
                     throw(err);
