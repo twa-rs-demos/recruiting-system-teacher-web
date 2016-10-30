@@ -1,10 +1,19 @@
 export default (state = false, action) => {
+
     switch (action.type) {
         case 'PAPER_META': {
-            if (action.result.url) {
+            if (action.result) {
                 alert("修改成功");
+            } else {
+                alert("修改失败");
             }
         }
+
+        case 'MODIFY_STATUS': {
+
+            return  ! state
+        }
     }
-    alert("修改失败");
+    return state;
 };
+

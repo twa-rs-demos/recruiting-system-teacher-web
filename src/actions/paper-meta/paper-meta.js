@@ -1,10 +1,10 @@
 import superagent from 'superagent';
 
-export const modifyMetaInfo = (title, description, easyCount, normalCount, hardCount)=> {
+export  const  modifyMeta=(title,description,easyCount,normalCount,hardCount)=>{
     return (dispatch)=> {
         superagent
-            .put('/api/papers')
-            .send({title, description, easyCount, normalCount, hardCount})
+            .put('/api/papers/modifiedPaper/2')
+            .send({title:title,description:description,easyCount:easyCount,normalCount:normalCount,hardCount:hardCount })
             .end((err, res) => {
                 if (err) {
                     throw(err);
@@ -15,10 +15,21 @@ export const modifyMetaInfo = (title, description, easyCount, normalCount, hardC
     }
 };
 
-const getMeta = (result)=> {
-
-    return {
-        type: "PAPERS_META",
-        result
-    };
+export const handleChange = ()=> {
+    return (dispatch)=> {
+        dispatch(changeStatus());
+    }
 };
+
+function changeStatus() {
+    return ({
+        type:'MODIFY_STATUS'
+    })
+}
+
+function getMeta(result) {
+    return ({
+        type: 'PAPER_META',
+        result
+    });
+}
